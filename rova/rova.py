@@ -3,7 +3,7 @@ import json
 import requests
 
 __title__ = "rova"
-__version__ = "0.0.1"
+__version__ = "0.0.2"
 __author__ = "Gido Hakvoort"
 __license__ = "MIT"
 
