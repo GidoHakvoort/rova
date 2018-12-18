@@ -23,13 +23,34 @@ class Rova(object):
         self.house_number = house_number
         self.rova_id = random.randint(10000, 30000)
 
+    def is_rova_area(self):
+        """
+        Check if ROVA collects garbage at this address
+        """
+        url = 'https://www.rova.nl/api/visitor'
+
+        # request data from rova server and check if rova collects garbage at this address
+        response = requests.post(url, data = {
+            'HouseNumber': self.house_number,
+            'ZipCode': self.zip_code,
+            'Ip': 'b',
+            'Portal': 'inwoners',
+            'UserAgent': 'text'
+            })
+
+        response.raise_for_status()
+
+        rova_response = response.json()
+
+        return rova_response.get('IsRovaArea')
+
     def get_calendar_items(self):
         """
         Request ROVA calendar items
         """
         url = 'https://www.rova.nl/api/TrashCalendar/GetCalendarItems'
 
-        # request dat from rova server and return response in json
+        # request data from rova server and return response in json
         response = requests.get(url, params={'portal': 'inwoners'}, cookies=self.get_cookies())
         response.raise_for_status()
         return json.loads(response.text)
