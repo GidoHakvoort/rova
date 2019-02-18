@@ -14,13 +14,14 @@ class Rova(object):
     See https://www.rova.nl/
     """
 
-    def __init__(self, zip_code, house_number):
+    def __init__(self, zip_code, house_number, house_addition=''):
         """
         To fetch the garbage calendar, you need to set a zip_code and house_number.
         A random id will automatically be generated
         """
         self.zip_code = zip_code
         self.house_number = house_number
+        self.house_addition = house_addition
         self.rova_id = random.randint(10000, 30000)
 
     def is_rova_area(self):
@@ -58,11 +59,11 @@ class Rova(object):
     def get_cookies(self):
         """Generate cookies for ROVA API request"""
         return {'RovaLc_inwoners': "{{'Id':{},'ZipCode':'{}', \
-        'HouseNumber':'{}', 'HouseAddition':'','Municipality':'', \
+        'HouseNumber':'{}', 'HouseAddition':'{}','Municipality':'', \
         'Province':'', 'Firstname':'','Lastname':'','UserAgent':'', \
         'School':'', 'Street':'','Country':'','Portal':'', \
         'Lat':'','Lng':'', 'AreaLevel':'','City':'','Ip':''}}"
-        .format(self.rova_id, self.zip_code, self.house_number)}
+        .format(self.rova_id, self.zip_code, self.house_number, self.house_addition)}
 
 
 
