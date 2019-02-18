@@ -6,7 +6,7 @@ See https://www.rova.nl/
 ## Create a new connection by supplying your zip code and house number
 
 ```
-r = rova.Rova(YOUR_ZIP_CODE, YOUR_HOUSE_NUMBER)
+r = rova.Rova(YOUR_ZIP_CODE, YOUR_HOUSE_NUMBER, [YOUR_HOUSE_NUMBER_ADDITION])
 ```
 
 ## API Request
