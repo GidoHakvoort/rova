@@ -1,11 +1,11 @@
 import setuptools
 
-with open("README.md", "r") as fh:
+with open("README.md", "r", encoding='utf-8') as fh:
     long_description = fh.read()
 
 setuptools.setup(
     name="rova",
-    version="0.2.0",
+    version="0.2.1",
     author="Gido Hakvoort",
     author_email="gido@hakvoort.it",
     description="API wrapper for ROVA calendar",

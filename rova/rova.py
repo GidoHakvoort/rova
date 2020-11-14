@@ -9,7 +9,7 @@ import random
 import requests
 
 __title__ = "rova"
-__version__ = "0.2.0"
+__version__ = "0.2.1"
 __author__ = "Gido Hakvoort"
 __license__ = "MIT"
 
