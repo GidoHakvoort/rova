@@ -17,20 +17,19 @@ __version__ = "0.3.0"
 __author__ = "Gido Hakvoort and synoniem <synoniem@hotmail.com>"
 __license__ = "MIT"
 
+
 class Rova:
     """
     ROVA class
     """
 
-    def __init__(self, zip_code, house_number, house_addition="",take=5):
-
+    def __init__(self, zip_code, house_number, house_addition=""):
         """
         To fetch the garbage calendar, you need to set a zip_code and house_number.
         """
         self.zip_code = zip_code.replace(' ', '')
         self.house_number = house_number.strip()
         self.house_addition = house_addition.strip()
-        self.take = int(take)
 
     def is_rova_area(self):
         """
@@ -38,14 +37,14 @@ class Rova:
         """
         url = 'https://www.rova.nl/api/waste-calendar/upcoming'
 
-        # request data from rova api and check if rova collects garbage at this address
+        # request data from rova API and check if garbage is collected at this address
         # requesting with a non-existing postalcode will result in a error message
 
-        response = requests.get(url, params = {
+        response = requests.get(url, params={
             'postalcode': self.zip_code,
             'houseNumber': self.house_number,
-            'addition' : self.house_addition,
-            'take' :    '1',
+            'addition': self.house_addition,
+            'take': '1',
             })
 
         response.raise_for_status()
@@ -55,23 +54,23 @@ class Rova:
             rova_response = "OK"
         return rova_response == "OK"
 
-    def get_calendar_items(self):
+    def get_calendar_items(self, take=5):
         """
         Get next pickup date for each garbage types
         """
         url = 'https://www.rova.nl/api/waste-calendar/upcoming'
         # request data from rova API and save response first 5 items (default)
-        response = requests.get(url, params = {
+        response = requests.get(url, params={
             'postalcode': self.zip_code,
             'houseNumber': self.house_number,
-            'addition' : self.house_addition,
-            'take' :    self.take,
+            'addition': self.house_addition,
+            'take': take,
             })
 
         response.raise_for_status()
 
         rova_response = response.json()
-        
+
         items = []
         types = []
         # add next pickup date for each garbage type
@@ -84,5 +83,5 @@ class Rova:
                 'GarbageTypeCode': garbage_type,
                 'Date': date
                 })
-            types.append(garbage_type)            
+            types.append(garbage_type)
         return items
