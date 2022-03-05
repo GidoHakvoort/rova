@@ -22,5 +22,5 @@ def is_rova_area():
 
 This method return the parsed JSON response as a list.
 ```
-def get_calendar_items():
+def get_calendar_items([TAKE]):
 ```
