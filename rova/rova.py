@@ -1,6 +1,6 @@
 """
 Wrapper to get ROVA calendar from Rova's API
-Acces to this ROVA API has been simplified since version 0.2.1 of this wrapper
+Access to this ROVA API has been simplified since version 0.2.1 of this wrapper
 Just use https://www.rova.nl/api/waste-calendar/upcoming?postalcode=1000AA&houseNumber=1&addition=&take=5
 with a existing combination of postalcode, housenumber, housenumber addition
 
