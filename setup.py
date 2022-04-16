@@ -9,6 +9,7 @@ setuptools.setup(
     author="Gido Hakvoort",
     author_email="gido@hakvoort.it",
     description="API wrapper for ROVA calendar",
+    install_requires=["requests"],
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/GidoHakvoort/rova",
