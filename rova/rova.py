@@ -80,7 +80,7 @@ class Rova:
             garbage_type = item["wasteType"]["code"].upper()
 
             # Breaking API change, so fix for upstream
-            if garbage_type == "PAP":
+            if garbage_type in {"PAP", "LOSPAP"}:
                 garbage_type = "PAPIER"
 
 
