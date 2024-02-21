@@ -77,7 +77,12 @@ class Rova:
         for item in rova_response:
             date = datetime.strptime(item["date"], "%Y-%m-%dT%H:%M:%SZ")
             date = date.strftime("%Y-%m-%dT%H:%M:%S")
-            garbage_type = item["garbageTypeCode"].upper()
+            garbage_type = item["wasteType"]["code"].upper()
+
+            # Breaking API change, so fix for upstream
+            if garbage_type in {"PAP", "LOSPAP"}:
+                garbage_type = "PAPIER"
+
 
             items.append({
                 'GarbageTypeCode': garbage_type,
