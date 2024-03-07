@@ -82,7 +82,8 @@ class Rova:
             # Breaking API change, so fix for upstream
             if garbage_type in {"PAP", "LOSPAP"}:
                 garbage_type = "PAPIER"
-
+            if garbage_type in {"RST"}:
+                garbage_type = "RESTAFVAL"
 
             items.append({
                 'GarbageTypeCode': garbage_type,
