@@ -5,7 +5,7 @@ with open("README.md", "r", encoding='utf-8') as fh:
 
 setuptools.setup(
     name="rova",
-    version="0.4.0",
+    version="0.4.1",
     author="Gido Hakvoort",
     author_email="gido@hakvoort.it",
     description="API wrapper for ROVA calendar",

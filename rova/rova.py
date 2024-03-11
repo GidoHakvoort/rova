@@ -13,7 +13,7 @@ import random
 import requests
 
 __title__ = "rova"
-__version__ = "0.4.0"
+__version__ = "0.4.1"
 __author__ = "Gido Hakvoort and synoniem <synoniem@hotmail.com>"
 __license__ = "MIT"
 
